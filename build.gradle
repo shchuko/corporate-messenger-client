@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+application {
+    mainClassName = 'com.shchuko.messenger_client.Main'
+}
+
+run {
+    standardInput = System.in
+}
+
+repositories {
+    mavenCentral()
+    flatDir dirs: "${rootDir}/lib"
+}
+
+dependencies {
+    implementation 'org.glassfish.jersey.core:jersey-client:2.28'
+    implementation 'org.glassfish.jersey.inject:jersey-hk2:2.28'
+    implementation 'org.json:json:20180813'
+    implementation 'org.glassfish.jersey.media:jersey-media-json-jackson:2.28'
+
+    compile group: 'com.intellij', name: 'forms_rt', version: '7.0.3'
+
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
+}
